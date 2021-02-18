@@ -1,13 +1,24 @@
+const path = require('path');
 // Load the plugin in your webpack.config.js file.
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+let modules = ["app", "app2"];
+let multipleHtmlPlugins = modules.map((name) => {
+    return new HtmlWebpackPlugin({
+        template: `./${name}/public/index.html`, // relative path to the HTML files
+        filename: `${name}/index.html`, // output HTML files
+        chunks: [`${name}`], // respective JS files
+    });
+});
 
 module.exports = {
     mode: "development",
     entry: {
-        app: "./src/index"
+        app: "./app/",
+        app2: "./app2/",
     },
     output: {
-        filename: "[name].js"
+        filename: "[name].js",
     },
     module: {
         rules: [
@@ -30,16 +41,20 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
     },
     devServer: {
+        contentBase: './dist',
+        writeToDisk: true,
+        compress: true,
+        port: 9000,
         overlay: true,
     },
     // Call the Plugin here.
     plugins: [
-        new HtmlWebPackPlugin({
-            template: "./public/index.html",
-            filename: "./index.html",
-        }),
-    ],
+        // new HtmlWebpackPlugin({
+        //     template: `./public/index.html`,
+        //     filename: `index.html`,
+        // }),
+    ].concat(multipleHtmlPlugins),
 };
