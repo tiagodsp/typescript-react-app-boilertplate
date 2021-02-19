@@ -1,8 +1,9 @@
 const path = require('path');
 // Load the plugin in your webpack.config.js file.
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
-let modules = ["app", "app2"];
+let modules = ["app"];
 let multipleHtmlPlugins = modules.map((name) => {
     return new HtmlWebpackPlugin({
         template: `./${name}/public/index.html`, // relative path to the HTML files
@@ -15,10 +16,10 @@ module.exports = {
     mode: "development",
     entry: {
         app: "./app/",
-        app2: "./app2/",
+        // app2: "./app2/",
     },
     output: {
-        filename: "[name].js",
+        filename: "[name]/[name].js",
     },
     module: {
         rules: [
@@ -50,11 +51,9 @@ module.exports = {
         port: 9000,
         overlay: true,
     },
+    devtool: 'cheap-module-source-map',
     // Call the Plugin here.
     plugins: [
-        // new HtmlWebpackPlugin({
-        //     template: `./public/index.html`,
-        //     filename: `index.html`,
-        // }),
+        new ErrorOverlayPlugin(),
     ].concat(multipleHtmlPlugins),
 };
