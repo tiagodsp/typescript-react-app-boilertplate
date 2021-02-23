@@ -1,5 +1,6 @@
-export const doNothing = () => {
+export function doNothing() {
     return {
-        type: "DO_NOTHING"
+        type: 'DO_NOTHING',
     };
-};
+}
+export default doNothing;
