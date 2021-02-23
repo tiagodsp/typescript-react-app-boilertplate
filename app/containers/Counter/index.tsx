@@ -1,10 +1,10 @@
-import React from "react";
-import { useStore } from "react-redux";
-import { store } from "../../";
-import { counter } from "./actions";
+import * as React from 'react';
+import { store } from '../..';
+import * as counter from './actions';
 
 export default class Counter extends React.Component<{}, { value: number }> {
-    componentWillMount() {
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillMount() {
         this.setState({ value: store.getState().counter.value });
         store.subscribe(() => {
             this.setState({ value: store.getState().counter.value });
@@ -12,10 +12,15 @@ export default class Counter extends React.Component<{}, { value: number }> {
     }
 
     render() {
+        const { value } = this.state;
         return (
             <div>
-                <p>COUNTER: {this.state.value}</p>
+                <p>
+                    COUNTER:
+                    {value}
+                </p>
                 <button
+                    type="submit"
                     onClick={() => {
                         store.dispatch(counter.increment());
                     }}
@@ -23,6 +28,7 @@ export default class Counter extends React.Component<{}, { value: number }> {
                     +
                 </button>
                 <button
+                    type="submit"
                     onClick={() => {
                         store.dispatch(counter.decrement());
                     }}

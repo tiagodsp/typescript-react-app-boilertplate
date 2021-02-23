@@ -1,12 +1,7 @@
-export const counter = {
-    increment: () => {
-        return {
-            type: "INCREMENT",
-        };
-    },
-    decrement: () => {
-        return {
-            type: "DECREMENT",
-        };
-    },
-};
+export function increment() {
+    return { type: 'INCREMENT' };
+}
+
+export function decrement() {
+    return { type: 'DECREMENT' };
+}
