@@ -1,6 +1,7 @@
 // Load the plugin in your webpack.config.js file.
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const modules = ['app'];
 const multipleHtmlPlugins = modules.map((name) => new HtmlWebpackPlugin({
@@ -42,7 +43,7 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     },
     devServer: {
-        contentBase: './dist',
+        contentBase: './dist/app',
         writeToDisk: true,
         compress: true,
         port: 9000,
@@ -52,5 +53,6 @@ module.exports = {
     // Call the Plugin here.
     plugins: [
         new ErrorOverlayPlugin(),
+        new CleanWebpackPlugin(),
     ].concat(multipleHtmlPlugins),
 };

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Counter from '../Counter';
+import React from 'react';
+import Counter from 'containers/Counter';
 
 export default class App extends React.Component {
     render() {
