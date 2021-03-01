@@ -1,12 +1,22 @@
 import React from 'react';
-import Counter from 'containers/Counter';
+import LateralNavbar from 'containers/LateralNavbar';
+import ContentPanel from 'containers/ContentPanel';
+import { Row, Col } from 'react-grid-system';
+
+import style from 'styles/style.scss';
 
 export default class App extends React.Component {
     render() {
         return (
-            <div>
-                <p>HELLO WORLD</p>
-                <Counter />
+            <div className={style.background}>
+                <Row gutterWidth={4} style={{ height: '100%' }}>
+                    <Col xs="content" style={{ height: '100%' }}>
+                        <LateralNavbar />
+                    </Col>
+                    <Col>
+                        <ContentPanel />
+                    </Col>
+                </Row>
             </div>
         );
     }

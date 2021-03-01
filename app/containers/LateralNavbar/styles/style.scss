@@ -1,0 +1,9 @@
+@import "styles/style";
+
+.navbar {
+    background-color: $color-base;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}

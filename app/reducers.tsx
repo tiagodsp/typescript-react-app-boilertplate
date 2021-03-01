@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import appReducer from 'containers/App/reducer';
-import counterReducer from 'containers/Counter/reducer';
+import navbarReducer from 'containers/LateralNavbar/reducer';
 
 // Combine here all reducers in the application
 const allReducers = combineReducers({
     global: appReducer,
-    counter: counterReducer,
+    counter: navbarReducer,
 });
 
 export default allReducers;

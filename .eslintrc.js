@@ -33,6 +33,7 @@ module.exports = {
         'linebreak-style': 'off',
         'react/jsx-filename-extension': 'off',
         'react/prefer-stateless-function': 'off',
+        'import/extensions': 'off',
     },
     settings: {
         'import/resolver': {
