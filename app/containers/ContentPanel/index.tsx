@@ -10,7 +10,7 @@ export default class ContentPanel extends React.Component {
     render() {
         return (
             <Card style={{ height: '100%' }}>
-                <p>ContentHere</p>
+                <p>Content Here</p>
             </Card>
         );
     }

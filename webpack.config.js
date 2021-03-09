@@ -100,7 +100,7 @@ module.exports = {
     // Call the Plugin here.
     plugins: [
         new ErrorOverlayPlugin(),
-        new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: true }),
+        new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: true, cleanStaleWebpackAssets: true }),
         new MiniCssExtractPlugin(),
         new webpack.DefinePlugin({
             'process.env': '{}',

@@ -8,9 +8,9 @@ import style from 'styles/style.scss';
 export default class App extends React.Component {
     render() {
         return (
-            <div className={style.background}>
-                <Row gutterWidth={4} style={{ height: '100%' }}>
-                    <Col xs="content" style={{ height: '100%' }}>
+            <div className={style.topContainer}>
+                <Row gutterWidth={6} style={{ height: '100%' }}>
+                    <Col xs="content">
                         <LateralNavbar />
                     </Col>
                     <Col>

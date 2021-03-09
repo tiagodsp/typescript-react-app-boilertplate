@@ -11,8 +11,12 @@ body {
     border: 0;
 }
 
-.background {
+.topContainer {
     background-color: $color-background;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    padding: 1rem;
 }
 
 :export {
